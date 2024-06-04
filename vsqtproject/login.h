@@ -14,6 +14,7 @@ public:
 	login(QWidget *parent = nullptr);
 	~login();
 
+
 private:
 	Ui::loginClass ui;
 	QVector<bool> IsShow;
