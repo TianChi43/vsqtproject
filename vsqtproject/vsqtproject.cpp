@@ -8,5 +8,10 @@ vsqtproject::vsqtproject(QWidget* parent, QString name)
     myname = name;
 }
 
+void vsqtproject::closeEvent(QCloseEvent*)
+{
+    emit this->closeWidget();
+}
+
 vsqtproject::~vsqtproject()
 {}

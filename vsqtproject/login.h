@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 #include<QToolButton>
+#include<QMessageBox>
 #include<QIcon>
 #include "ui_login.h"
 
@@ -15,4 +16,5 @@ public:
 
 private:
 	Ui::loginClass ui;
+	QVector<bool> IsShow;
 };

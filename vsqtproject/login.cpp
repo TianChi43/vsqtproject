@@ -24,14 +24,25 @@ login::login(QWidget *parent)
 		btn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 		ui.vlayout->addWidget(btn);
 		vector.push_back(btn);
+		IsShow.push_back(false);//代表窗口还没打开
 	}
 	for (int i = 0; i < 9; i++)
 	{
 		connect(vector[i], &QToolButton::clicked, [=]() {
+			if (IsShow[i])
+			{
+				QMessageBox::warning(this, "Warning", "It has been opened");
+				return;
+			}
+			IsShow[i] = true;
 			vsqtproject* wider = new vsqtproject(nullptr, vector[i]->text());
 			wider->setWindowIcon(vector[i]->icon());
 			wider->setWindowTitle(vector[i]->text()); 
 			wider->show();
+			//关闭时将对应的isshow变为false;
+			connect(wider, &vsqtproject::closeWidget, this, [=]() {
+				IsShow[i] = false;
+				});
 			});
 	}
 }
