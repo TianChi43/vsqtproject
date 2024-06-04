@@ -4,9 +4,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    vsqtproject w;
-    w.show();
-    //login b;
-    //b.show();
+    //vsqtproject w;
+    //w.show();
+    login b;
+    b.show();
     return a.exec();
 }
